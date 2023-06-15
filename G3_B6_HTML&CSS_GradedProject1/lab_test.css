@@ -1,0 +1,104 @@
+
+.main_div{
+    padding-top: 30px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+.wrapper {
+    /*text-align : center;*/
+    height: 500px;
+    width: 700px;
+    border: none; /*2px solid black ;*/
+    overflow-y: auto;
+    height: 100%;
+    box-shadow:  0 0 10px  rgba(0,0,0,0.6);
+    -moz-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+    -o-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+}
+
+.image{
+    height: 500px;
+    display: inline-block;
+    /*background-image: url('Images/Lab-Test/lab-test1.jpg');*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position:fixed;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size:auto; /* Cover the entire screen */
+
+    background-position: center;
+    width: 340px;
+}
+
+.form {
+    display: inline-block;
+    vertical-align: top;
+    /*text-align: left;*/
+    width: 340px;
+}
+
+input {
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid rgb(187, 187, 187);
+    width: 140px;
+    margin: 10px;
+}
+
+label {
+    color: rgb(187, 187, 187);
+    margin: 10px;
+}
+
+.check_box{
+    width: 30px;
+}
+
+.option_btn{
+    width: 30px;
+}
+h2{
+    padding: 10px;
+    margin: 0px;
+}
+p{
+    text-align: center;
+}
+
+.form_btn{
+    background-color: rgb(203, 183, 213);
+    color: rgb(255, 255, 255);
+    border-color: rgb(180, 86, 224);
+    border-radius: 8px;
+    width: 220px;
+}
+
+.form_btn:active{
+    background-color: rgb(250, 234, 230);
+    border-color: rgb(0, 255, 76);
+}
+
+.date_picker{
+    border: 1px solid rgb(187, 187, 187);
+    padding: 10px;
+    margin-left: 50px;
+    margin-top: 0;
+    border-radius: 2px;
+}
+
+.district{
+    border: 1px solid rgb(187, 187, 187);
+    padding: 10px;
+    margin-left: 30px;
+    margin-top: 0;
+    border-radius: 2px;
+}
+
+.home{
+    height: 20px;
+    width: auto;
+}

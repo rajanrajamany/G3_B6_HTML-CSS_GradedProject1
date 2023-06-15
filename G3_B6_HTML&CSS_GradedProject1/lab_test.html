@@ -1,0 +1,172 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">-->
+
+<html>
+    <head>
+        <title>Lab Test</title>
+        <link rel="stylesheet" href="lab_test.css">
+    </head>
+    <body>
+
+        <script>
+
+            function required(inputtx) 
+            {
+                var empt=document.forms["lab-form"][inputtx].value.trim();
+                if(empt == ""){
+                    //alert("Enter Full Name.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            
+            function valthisform(){
+
+
+/*contact_no
+email_id
+houseno
+street
+area
+district <> Choose*/
+
+                if (!required("fullname")){
+                    alert("Enter Full Name.");
+                    return false;
+                }
+
+                if (!required("contact_no")){
+                    alert("Enter Contact Number.");
+                    return false;
+                }
+
+                if (!required("email_id")){
+                    alert("Enter Email Id.");
+                    return false;
+                }
+
+                if (!required("houseno")){
+                    alert("Enter House Number.");
+                    return false;
+                }
+                
+                if (!required("street")){
+                    alert("Enter Street.");
+                    return false;
+                }
+
+                if (!required("area")){
+                    alert("Enter Area.");
+                    return false;
+                }
+
+/*                var empt=document.forms["lab-form"]["fullname"].value.trim();
+                if(empt == ""){
+                    alert("Enter Full Name.");
+                    return false;
+                }
+*/
+                var district = document.getElementById("district").value;
+                if (district == 'Choose'){
+                    alert("Select a valid District.");
+                    return false;
+                }
+
+                var collection_time = document.getElementById("collection_time").value;
+                var ToDate = new Date();
+               
+                if (new Date(collection_time).getTime() <= ToDate.getTime()+120*60000) {
+                    alert("The Date & Time must be after 2 hours from now.");
+                    return false;
+                }
+
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                var checkedOne = Array.prototype.slice.call(checkboxes).some(BoxSelect => BoxSelect.checked );
+                    
+                if (checkedOne == true){
+                } else {
+                    alert ("Please Choose a Test Type.");
+                    return false;
+                }   
+
+                                
+                if (document.getElementById("collection_time").value.replace('T', ' ').trim()!=""){                        
+                    alert("Thank you! Your Order is taken, sample will be collected @ " + document.getElementById("collection_time").value.replace('T', ' ') + " hours.") ;
+                } else {
+                    alert("Please select the date and time.");
+                    return false;
+                }
+
+
+            }
+
+        </script>
+
+        <a href="pharmacy.html"><img class="home" src="Images/Lab-Test/Home.jpg"/></a>
+
+            <div class="main_div">        
+                <div class="wrapper">
+                    <div class="form" >
+                        <form action="pharmacy.html" name="lab-form" id="lab-form">
+                            <h2>1. Your Contact Details</h2>
+                            
+                            <input type="text" name="fullname" title="Full Name" placeholder="Full Name" >
+                            <input type="text" name="patientid" title="Patient Id" placeholder="Patient Id if exists" >
+                            <br><br>
+                            <input type="number" name="contact_no" title="Contact No," min="1000000000" max="9999999999" placeholder="Contact Number" required>
+                            <input type="email" name="email_id" title="Email Id" placeholder="Email id" required>
+                            <br>
+                            <br>
+                            <h2>2. Address</h2>
+                            <input type="text" name="houseno" title="House No" placeholder="House Number" required>
+                            <input type="text" name="street" title="Street" placeholder="Street" required>
+                            <br>
+                            <input type="text" name="area" title="Area" placeholder="Area" required>
+                            <br>
+                            <label for="district">District</label>
+                            <select name="district" id="district" class="district">
+                                <option value="Choose">Choose</option>
+                                <option value="Salem">Salem</option>
+                                <option value="Erode">Erode</option>
+                                <option value="Kanchipuram">Kanchipuram</option>
+                                <option value="Vellore">Vellore</option>
+                            </select>
+                            <br>
+                            <br>
+                            <h2>3. Choose the Test Type.</h2>
+                            <div > 
+                                <input name="BoxSelect" type="checkbox" class="check_box" value="CBC" ><label>CBC</label>
+                                <br>
+                                <input name="BoxSelect" type="checkbox" class="check_box" value="Complete Urine"><label>Complete Urine</label>
+                                <br>
+                                <input name="BoxSelect" type="checkbox" class="check_box" value="Lipid Profile"><label>Lipid Profile</label>
+                                <br>
+                                <input name="BoxSelect" type="checkbox" class="check_box" value="Thyroid Stimulating Hormone(TSH)" ><label>Thyroid Stimulating Hormone(TSH)</label>
+                                <br>
+                                <input name="BoxSelect" type="checkbox" class="check_box" value="Glucose Test"><label>Glucose Test</label>
+                                <br>
+                            </div>
+                            <h2>4. Do you want a hard copy of the report also?</h2>
+                            <input type="radio" id="yes" name="hard_copy" value="Yes" class="option_btn">
+                            <label for="age1">Yes</label>
+                            <input type="radio" id="no" name="hard_copy" value="No" checked="checked" class="option_btn">
+                            <label for="age2">No</label><br>  
+                            <h2>5. Select Your Comfortable Date and Time</h2>
+
+                            <input type="datetime-local" id="collection_time" name="collection_time" class="date_picker" required>
+
+                    </form>
+                    </div>
+                    <div class="image" >
+                        <img src="Images/Lab-Test/lab-test.jpg" />
+                        
+                    </div>
+                </div>
+            </div>
+
+        <p>
+            <button form="lab-form" class="form_btn" type="reset" >Reset</button>
+            <button form="lab-form" class="form_btn" name="submitBtn" onclick="return valthisform() ">Submit</button>
+        </p>
+    </body>
+</html>
